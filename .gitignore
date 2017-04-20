@@ -1,2 +1,8 @@
 # Ignore Temporary Folder
 Temp
+
+# Ignore Library Folder
+Library
+
+# Ignore Settings Folder
+ProjectSettings

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeRunners", "Assembly-CSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeRunners", "Assembly-UnityScript.unityproj", "{B7D35B71-C6D0-F046-00F3-812AFE62D78C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeRunners", "Assembly-UnityScript-Editor.unityproj", "{7A8789C5-3A9D-538A-B2FB-20BBD79DDEFD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,10 +25,6 @@ Global
 		{B7D35B71-C6D0-F046-00F3-812AFE62D78C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7D35B71-C6D0-F046-00F3-812AFE62D78C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7D35B71-C6D0-F046-00F3-812AFE62D78C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A8789C5-3A9D-538A-B2FB-20BBD79DDEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A8789C5-3A9D-538A-B2FB-20BBD79DDEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A8789C5-3A9D-538A-B2FB-20BBD79DDEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A8789C5-3A9D-538A-B2FB-20BBD79DDEFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

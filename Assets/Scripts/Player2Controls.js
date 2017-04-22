@@ -12,17 +12,17 @@ function Update () {
 		GetComponent.<Animation>().Play("run");
 	}
 	else
-		GetComponent.<Animation>().Play("idle");
+		GetComponent.<Animation>().Play("waitingforbattle");
 
-	if(Input.GetKey(KeyCode.K))
+	if(Input.GetKey(KeyCode.K)){
 		transform.Translate(Vector3.back * Time.deltaTime);
+	}
 
 	if(Input.GetKey(KeyCode.L))
-		transform.Rotate(Vector3.up);
+		transform.Rotate(Vector3.up * 2);
 
 	if(Input.GetKey(KeyCode.J))
-		transform.Rotate(Vector3.down);
+		transform.Rotate(Vector3.down * 2);
 
-	if(Input.GetKey(KeyCode.J))
-		transform.Rotate(Vector3.down);
+
 }

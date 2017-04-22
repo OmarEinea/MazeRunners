@@ -90,6 +90,7 @@
      <Compile Include="Assets\Imported assets\Standard Assets\Utility\TimedObjectDestructor.cs" />
      <Compile Include="Assets\Imported assets\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\Imported assets\Standard Assets\Utility\WaypointProgressTracker.cs" />
+     <Compile Include="Assets\Scripts\Jump.cs" />
      <None Include="Assets\Imported assets\Fantasy Defensive Structures\Fantasy Defensive Strucures\Readme.txt" />
      <None Include="Assets\Imported assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Imported assets\SkeletonData\animations.txt" />

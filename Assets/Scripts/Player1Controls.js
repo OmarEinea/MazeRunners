@@ -34,7 +34,7 @@ function Update () {
 		transform.Rotate(Vector3.down * 2);
 
 //Jumping
-	if (controller.isGrounded) {
+	if (transform.position.y <= 0.02) {
 		verticalVelocity = -gravity * Time.deltaTime;
 		if (Input.GetKey (KeyCode.R)) {
 			verticalVelocity = jumpPower;

@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Imported assets\Ancient Weapons Pack\DemoScene\rotateAllObjects.js" />
      <Compile Include="Assets\Imported assets\Palace of Orinthalian\[Maps]\Palace of Orinthalian - Assets\Scripts\SimpleObjectRotation.js" />
      <Compile Include="Assets\Particles\Legacy Particles\TimedObjectDestructor.js" />
      <Compile Include="Assets\Scripts\Camera Scripts\MouseOrbit.js" />
@@ -58,6 +59,7 @@
      <None Include="Assets\Imported assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Imported assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Imported assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
+     <None Include="Assets\Imported assets\Ancient Weapons Pack\Materials &amp; Textures\Gem\Shaders\Gem.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

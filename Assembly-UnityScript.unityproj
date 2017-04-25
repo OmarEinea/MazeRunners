@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Camera Scripts\SmoothLookAt.js" />
      <Compile Include="Assets\Scripts\Player1Controls.js" />
      <Compile Include="Assets\Scripts\Player2Controls.js" />
+     <Compile Include="Assets\Scripts\rbPlayerControls.js" />
      <None Include="Assets\Imported assets\Fantasy Defensive Structures\Fantasy Defensive Strucures\Readme.txt" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularSmooth.shader" />
      <None Include="Assets\Imported assets\Characters\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

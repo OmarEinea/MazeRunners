@@ -1,9 +1,9 @@
 ﻿#pragma strict
 
-	private var controller : CharacterController;
-	private var gravity : float = 17.0f;
-	private var jumpPower : float = 6.0f;
-	private var verticalVelocity : float;
+private var controller : CharacterController;
+private var gravity : float = 17.0f;
+private var jumpPower : float = 6.0f;
+private var verticalVelocity : float;
 
 function Start () {
 		controller = GetComponent(CharacterController);
@@ -34,7 +34,7 @@ function Update () {
 		transform.Rotate(Vector3.down * 2);
 
 //Jumping
-	if (transform.position.y <= 0.02) {
+	if (controller.isGrounded) {
 		verticalVelocity = -gravity * Time.deltaTime;
 		if (Input.GetKey (KeyCode.R)) {
 			verticalVelocity = jumpPower;

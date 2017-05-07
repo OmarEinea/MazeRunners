@@ -1,28 +1,57 @@
 
-public var MazeWidth:int = 10;
-public var MazeHeight:int = 20;
 public var CellWall:GameObject;
 public var CellCorner:GameObject;
-public var StartPosition:Vector3 = Vector3(0,0,0);
+public var WallGate:GameObject;
+public var CornerTower:GameObject;
+public var StartPosition:Vector3;
+private var MazeWidth:int = 5;
+private var MazeHeight:int = 8;
 
-function Start () {
-	var disp = newMaze(MazeWidth, MazeHeight);
+function Start() {
+	BuildCornerTowers(StartPosition.x, StartPosition.z);
+	var gates = [
+		[0, MazeWidth - 1, 0],
+		[0, Mathf.Floor(MazeWidth / 2), 0],
+		[0, 0, 0]
+	];
 
-	for (var l = 0; l < MazeWidth + 1; l++)
-	 	for (var n = 0; n < MazeHeight + 1; n++)
-	 		Instantiate(CellCorner, StartPosition - Vector3(l*10, -3.45, n*10), Quaternion.Euler(Vector3(270, 0, 0)), transform);
+	var goals = [
+		[MazeHeight + 2, MazeWidth - 1, 1],
+		[MazeHeight, Mathf.Floor(MazeWidth / 2), 2],
+		[MazeHeight + 2, 0, 3]
+	];
+	var openMaze = Mathf.Floor(Random.Range(0, 2.9999f));
+	for (var i = 0; i < 3; i++) {
+		BuildMaze(StartPosition, MazeWidth, goals[i][0], gates[i], goals[i], i == openMaze);
+		StartPosition -= Vector3(0, 0, MazeWidth * 10);
+	}
 
-	StartPosition -= Vector3(5, 0, 5);
-	 		
-    for (var i = 0; i < disp.length; i++)
-        for (var j = 0; j < disp[i].length; j++)
-	        for (var k = 0; k < disp[i][j].length; k++)
-	        	if(disp[i][j][k] == 0)
-	        		Instantiate(CellWall, StartPosition - Vector3(i*10, 0, j*10), Quaternion.Euler(Vector3(0, k*90, 0)), transform);
+	Instantiate(gameObject, transform.position, Quaternion.Euler(Vector3(0, 180, 0))).GetComponent.<MazeGenerator>().enabled = false;
+}
+
+function BuildCornerTowers(x:int, y:int) {
+	Instantiate(CornerTower, Vector3(x, 15, y), Quaternion.Euler(Vector3(270, 0, 0)), transform);
+	Instantiate(CornerTower, Vector3(x, 15, -y), Quaternion.Euler(Vector3(270, 0, 0)), transform);
+}
+
+function BuildMaze(position, width, height, gate, goal, open) {
+	for (var l = 0; l < width + 1; l++)
+	 	for (var n = 1; n < height; n++)
+	 		Instantiate(CellCorner, position - Vector3(n*10, -3.45, l*10), Quaternion.Euler(Vector3(270, 0, 0)), transform);
+
+	var maze = MazeMatrix(width, height);
+	position -= Vector3(5, 0, 5);
+
+    for (var i = 0; i < maze.length; i++)
+        for (var j = 0; j < maze[i].length; j++)
+	        for (var k = 0; k < maze[i][j].length; k++)
+	        	if(maze[i][j][k] == 0)
+	        		Instantiate((i == gate[0] && j == gate[1] && k == gate[2] || open && i == goal[0] - 1 && j == goal[1] && k == goal[2]) ? WallGate : CellWall,
+	        					position - Vector3(i*10, 0, j*10), Quaternion.Euler(Vector3(0, k*90, 0)), transform);
 
 }
 
-function newMaze(x, y) {
+function MazeMatrix(x, y) {
 
     // Establish variables and starting grid
     var totalCells = x*y;

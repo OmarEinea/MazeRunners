@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B7D35B71-C6D0-F046-00F3-812AFE62D78C}</ProjectGuid>
+    <ProjectGuid>{901643AD-12D9-A4AB-F680-5D366691BC47}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-UnityScript</AssemblyName>
@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Camera Scripts\SmoothFollow.js" />
      <Compile Include="Assets\Scripts\Camera Scripts\SmoothLookAt.js" />
      <Compile Include="Assets\Scripts\Goal.js" />
+     <Compile Include="Assets\Scripts\MazeGenerator.js" />
      <Compile Include="Assets\Scripts\Player1Controls.js" />
      <Compile Include="Assets\Scripts\Player2Controls.js" />
      <Compile Include="Assets\Scripts\rbPlayerControls.js" />

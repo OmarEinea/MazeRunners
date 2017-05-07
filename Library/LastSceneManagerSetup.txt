@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/Admin/Desktop/Unity/HW3/Assets/Q2.unity
+- path: Assets/Scenes/Castle.unity
   isLoaded: 1
   isActive: 1

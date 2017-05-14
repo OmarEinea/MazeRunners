@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MainMenu.js">
     <Files>
-      <File FileName="Assets\Scripts\Menu.js" Line="14" Column="17" />
+      <File FileName="Assets\Scripts\PauseMenu.js" Line="88" Column="34" />
+      <File FileName="Assets\Scripts\MainMenu.js" Line="243" Column="70" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

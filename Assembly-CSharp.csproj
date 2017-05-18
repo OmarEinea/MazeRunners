@@ -46,6 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\GUI Skins\Extra GUI Skins\SkinTest.cs" />
+     <Compile Include="Assets\GUI Skins\GUIVirusEffect\Scripts\Door.cs" />
+     <Compile Include="Assets\GUI Skins\GUIVirusEffect\Scripts\VirusGUI.cs" />
+     <Compile Include="Assets\GUI Skins\ShowSkin.cs" />
      <Compile Include="Assets\Imported assets\Characters\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
      <Compile Include="Assets\Imported assets\Characters\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
      <Compile Include="Assets\Imported assets\Characters\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
@@ -90,9 +94,17 @@
      <Compile Include="Assets\Imported assets\Characters\Standard Assets\Utility\TimedObjectDestructor.cs" />
      <Compile Include="Assets\Imported assets\Characters\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\Imported assets\Characters\Standard Assets\Utility\WaypointProgressTracker.cs" />
+     <Compile Include="Assets\Imported assets\torch\scene\script\TorchSlider.cs" />
+     <Compile Include="Assets\Imported assets\torch\scene\script\Torchslider2.cs" />
+     <Compile Include="Assets\Imported assets\torch\scripts\Torchelight.cs" />
      <None Include="Assets\Imported assets\Fantasy Defensive Structures\Fantasy Defensive Strucures\Readme.txt" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularSmooth.shader" />
+     <None Include="Assets\GUI Skins\GUIVirusEffect\VirusGUI.txt" />
+     <None Include="Assets\GUI Skins\Necromancer GUI\Kingthings.txt" />
+     <None Include="Assets\GUI Skins\DualCorStudios\Readme.txt" />
      <None Include="Assets\Imported assets\Characters\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\GUI Skins\Necromancer GUI\Readme.txt" />
+     <None Include="Assets\Imported assets\torch\readme.txt" />
      <None Include="Assets\Imported assets\Characters\SkeletonData\animations.txt" />
      <None Include="Assets\Imported assets\Characters\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Imported assets\Characters\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze Runners", "Assembly-CSharp.csproj", "{8DF0E782-45CE-40D2-0553-482F8E5A182D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze Runners", "Assembly-CSharp-Editor.csproj", "{603DC270-D1E8-07A7-9711-81DC66F0CCF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze Runners", "Assembly-UnityScript.unityproj", "{901643AD-12D9-A4AB-F680-5D366691BC47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DF0E782-45CE-40D2-0553-482F8E5A182D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF0E782-45CE-40D2-0553-482F8E5A182D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF0E782-45CE-40D2-0553-482F8E5A182D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF0E782-45CE-40D2-0553-482F8E5A182D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{603DC270-D1E8-07A7-9711-81DC66F0CCF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{603DC270-D1E8-07A7-9711-81DC66F0CCF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{603DC270-D1E8-07A7-9711-81DC66F0CCF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{603DC270-D1E8-07A7-9711-81DC66F0CCF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{901643AD-12D9-A4AB-F680-5D366691BC47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{901643AD-12D9-A4AB-F680-5D366691BC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{901643AD-12D9-A4AB-F680-5D366691BC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{901643AD-12D9-A4AB-F680-5D366691BC47}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

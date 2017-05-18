@@ -49,7 +49,12 @@
      <Compile Include="Assets\Imported assets\Characters\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <None Include="Assets\Imported assets\Fantasy Defensive Structures\Fantasy Defensive Strucures\Readme.txt" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularSmooth.shader" />
+     <None Include="Assets\GUI Skins\GUIVirusEffect\VirusGUI.txt" />
+     <None Include="Assets\GUI Skins\Necromancer GUI\Kingthings.txt" />
+     <None Include="Assets\GUI Skins\DualCorStudios\Readme.txt" />
      <None Include="Assets\Imported assets\Characters\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\GUI Skins\Necromancer GUI\Readme.txt" />
+     <None Include="Assets\Imported assets\torch\readme.txt" />
      <None Include="Assets\Imported assets\Characters\SkeletonData\animations.txt" />
      <None Include="Assets\Imported assets\Characters\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Imported assets\Characters\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

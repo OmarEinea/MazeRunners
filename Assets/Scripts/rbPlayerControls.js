@@ -1,7 +1,5 @@
 ﻿#pragma strict
 
-private var rb:Rigidbody;
-
 var up:String;
 var down:String;
 var left:String;
@@ -22,6 +20,7 @@ private var flyingFrom:Vector3;
 private var flyingRotation:Quaternion;
 private var isFlying:boolean = false;
 private var weaponPicked:boolean = false;
+private var rb:Rigidbody;
 
 function Start () {
 	rb = GetComponent.<Rigidbody>();
@@ -29,18 +28,33 @@ function Start () {
 }
 
 function OnCollisionEnter(col:Collision){
-
 	if(col.gameObject.tag == "PickWeapon" && !weaponPicked) {
 		weapons.Find(col.gameObject.name).gameObject.SetActive(true);
 		weapons.GetComponent.<CapsuleCollider>().enabled = true;
 		weaponPicked = true;
-		isFlying = true;
+		animator.SetTrigger("Fly");
 		animator.SetBool("Run Forwards", false);
 		animator.SetBool("Run Backwards", false);
-		flyingStart = Time.time;
-		flyingFrom = transform.position;
-		flyingRotation = transform.rotation;
 	}
+}
+
+function OnFlyingStart() {
+	isFlying = true;
+	flyingStart = Time.time;
+	flyingFrom = transform.position;
+	flyingRotation = transform.rotation;
+}
+
+function CheckWinner() {
+	if(Health > 0) {
+		animator.SetTrigger("Win");
+		enabled = false;
+	}
+}
+
+function OnDeath() {
+	for(var player in FindObjectsOfType(rbPlayerControls))
+		player.CheckWinner();
 }
 
 function OnTriggerEnter(col:Collider) {
@@ -70,7 +84,10 @@ function Update () {
 		var center = (flyingFrom + Vector3(flyingToX, 0, 0)) / 2 - Vector3(0, 1, 0);
 		transform.position = Vector3.Slerp(flyingFrom - center, Vector3(flyingToX, 0, 0) - center, time);
 		transform.position += center;
-		if(time > 1) isFlying = false;
+		if(time > 1) {
+			isFlying = false;
+			animator.SetTrigger("Land");
+		}
 	} else {
 		var oldY:float = rb.velocity.y;
 
@@ -81,11 +98,15 @@ function Update () {
 			animator.SetTrigger("Attack");
 
 		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
-		   !animator.GetCurrentAnimatorStateInfo(0).IsName("Get Hit")) {
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("Get Hit") &&
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("Land")) {
 			if(animator.GetBool("Run Forwards"))
 				rb.velocity = speed * transform.forward;
 			if(animator.GetBool("Run Backwards"))
 				rb.velocity = (1-speed) * transform.forward;
+			if(Input.GetKeyDown(jump)) {
+				animator.SetTrigger("Jump");
+			}
 		}
 
 		if(Input.GetKey(right))
@@ -93,9 +114,6 @@ function Update () {
 		
 		if(Input.GetKey(left))
 			transform.Rotate(Vector3.down * speed/2);
-		
-		if(Input.GetKeyDown(jump))
-			rb.AddForce(Vector3.up * 300);
 
 		rb.velocity = Vector3(rb.velocity.x, oldY, rb.velocity.z);
 	}

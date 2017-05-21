@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/rbPlayerControls.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\rbPlayerControls.js">
     <Files>
-      <File FileName="Assets/Scripts/rbPlayerControls.js" Line="63" Column="5" />
+      <File FileName="Assets\Scripts\rbPlayerControls.js" Line="14" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -10,11 +10,11 @@ var jump:String;
 var attack:String;
 var Health:int = 3;
 var weapons:Transform;
-var flyingToX:float = 105;
+var flyingToX:float = 110;
 var flyingAngle:float = 90;
 
-private var speed:int = 5;
-private var anim:Animation;
+private var speed:int = 7;
+private var animator:Animator;
 private var flyingDuration:float = 10;
 private var flyingStart:float;
 private var flyingMid:float;
@@ -25,16 +25,18 @@ private var weaponPicked:boolean = false;
 
 function Start () {
 	rb = GetComponent.<Rigidbody>();
-	anim = GetComponent.<Animation>();
+	animator = GetComponent.<Animator>();
 }
 
 function OnCollisionEnter(col:Collision){
 
 	if(col.gameObject.tag == "PickWeapon" && !weaponPicked) {
 		weapons.Find(col.gameObject.name).gameObject.SetActive(true);
-		weapons.GetComponent.<BoxCollider>().enabled = true;
+		weapons.GetComponent.<CapsuleCollider>().enabled = true;
 		weaponPicked = true;
 		isFlying = true;
+		animator.SetBool("Run Forwards", false);
+		animator.SetBool("Run Backwards", false);
 		flyingStart = Time.time;
 		flyingFrom = transform.position;
 		flyingRotation = transform.rotation;
@@ -43,21 +45,21 @@ function OnCollisionEnter(col:Collision){
 
 function OnTriggerEnter(col:Collider) {
 	if(Health > 0) {
-		if(col.gameObject.tag == "Hit" && !col.transform.IsChildOf(transform) &&
-		   col.transform.root.GetComponent.<Animation>().IsPlaying("attack") && !anim.IsPlaying("getHit")) {
-			anim.Play("getHit");
+		if(col.gameObject.tag == "Hit" && !col.transform.IsChildOf(transform) && 
+				col.transform.root.GetComponent.<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
+					!animator.GetCurrentAnimatorStateInfo(0).IsName("Get Hit")) {
 			Health--;
-		}
-		if(Health == 0) {
-			anim.Play("die");
-			enabled = false;
+			if(Health == 0) {
+				animator.SetTrigger("Die");
+				GetComponent.<CapsuleCollider>().enabled = false;
+				enabled = false;
+			} else animator.SetTrigger("Get Hit");
 		}
 	}
 }
 
 function Update () {
 	if(isFlying) {
-		anim.Play("idle");
 		var time = (Time.time - flyingStart) / flyingDuration;
 		if(time < 0.5) {
 			transform.rotation = Quaternion.Lerp(flyingRotation, Quaternion.Euler(60, flyingAngle, 0), time * 2);
@@ -69,26 +71,29 @@ function Update () {
 		transform.position = Vector3.Slerp(flyingFrom - center, Vector3(flyingToX, 0, 0) - center, time);
 		transform.position += center;
 		if(time > 1) isFlying = false;
-	} else if(!anim.IsPlaying("getHit")) {
+	} else {
 		var oldY:float = rb.velocity.y;
 
-		if(Input.GetKey(up)){
-			rb.velocity = speed * transform.forward;
-			anim.Play("run");
-		} else if(Input.GetKey(down)){
-			rb.velocity = (1-speed) * transform.forward;
-			anim.Play("run");
-		} else if(Input.GetKeyDown(attack) && weaponPicked)
-			anim.Play("attack");
-		else if(!anim.IsPlaying("attack"))
-			anim.Play("idle");
+		animator.SetBool("Run Forwards", Input.GetKey(up));
+		animator.SetBool("Run Backwards", Input.GetKey(down));
+
+		if(Input.GetKeyDown(attack) && weaponPicked)
+			animator.SetTrigger("Attack");
+
+		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("Get Hit")) {
+			if(animator.GetBool("Run Forwards"))
+				rb.velocity = speed * transform.forward;
+			if(animator.GetBool("Run Backwards"))
+				rb.velocity = (1-speed) * transform.forward;
+		}
 
 		if(Input.GetKey(right))
 			transform.Rotate(Vector3.up * speed/2);
-
+		
 		if(Input.GetKey(left))
 			transform.Rotate(Vector3.down * speed/2);
-
+		
 		if(Input.GetKeyDown(jump))
 			rb.AddForce(Vector3.up * 300);
 

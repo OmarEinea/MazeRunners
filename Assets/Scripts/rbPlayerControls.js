@@ -45,16 +45,16 @@ function OnFlyingStart() {
 	flyingRotation = transform.rotation;
 }
 
+function OnDeath() {
+	for(var player in FindObjectsOfType(rbPlayerControls))
+		player.CheckWinner();
+}
+
 function CheckWinner() {
 	if(Health > 0) {
 		animator.SetTrigger("Win");
 		enabled = false;
 	}
-}
-
-function OnDeath() {
-	for(var player in FindObjectsOfType(rbPlayerControls))
-		player.CheckWinner();
 }
 
 function OnTriggerEnter(col:Collider) {

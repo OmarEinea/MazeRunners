@@ -6,14 +6,14 @@ private var previousPage:Page;
 private var menuTop:int = 200;
 private var StartPaused:boolean = true;
 private var mainMenu:boolean = true;
-private var credits: String[] = ["Thanx for playing our game.", "Developed by: Omar Enie and Khalil Mohammad", "Copyright (c) 2017 Technicat, LLC. All Rights Reserved."];
+private var credits: String[] = ["Thanx for playing our game.", "Developed by: Omar Einea and Khalil Mohammad", "Copyright (c) 2017 Technicat, LLC. All Rights Reserved."];
 private var toolbarIndex: int = 0;
 private var toolbarStrings: String[] = ["Audio", "Graphics", "System"];
 private var toolbarLevels: String[] = ["Castle", "Desert"];
-private var toolbarCharacters: String[] = ["Player1", "Player2"];
-private var P1:String = "Skeleton";
-private var P2:String = "Zombie";
-private var ChosenLevel: String = "Castle";
+private var toolbarCharacters: String[] = ["Player 1", "Player 2"];
+var P1:String = "Heraklios";
+var P2:String = "Paladin";
+var ChosenLevel: String = "Castle";
 var hudColor:Color = Color.white;
 var Skin:GUISkin;
 
@@ -149,27 +149,18 @@ function ShowCharactersMenu(){
 
 function Player1Char(){
 
-	if(GUILayout.Button("Skeleton"))
-			P1 = "Skeleton";
-	if(GUILayout.Button("Zombie"))
-			P1 = "Zombie";
-	if(GUILayout.Button("Knight"))
-			P1 = "Knight";
-	if(GUILayout.Button("Orch"))
-			P1 = "Orch";
+	if(GUILayout.Button("Paladin"))
+			P1 = "Paladin";
+	if(GUILayout.Button("Heraklios"))
+			P1 = "Heraklios";
 }
 
 function Player2Char(){
 
-	if(GUILayout.Button("Skeleton"))
-			P2 = "Skeleton";
-	if(GUILayout.Button("Zombie"))
-			P2 = "Zombie";
-	if(GUILayout.Button("Knight"))
-			P2 = "Knight";
-	if(GUILayout.Button("Orch"))
-			P2 = "Orch";
-	
+	if(GUILayout.Button("Heraklios"))
+			P2 = "Heraklios";
+	if(GUILayout.Button("Paladin"))
+			P2 = "Paladin";	
 }
 
 function ShowLevelMenu(){ //ChosenLevel

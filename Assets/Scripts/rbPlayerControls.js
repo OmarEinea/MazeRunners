@@ -21,6 +21,7 @@ private var flyingRotation:Quaternion;
 private var isFlying:boolean = false;
 private var weaponPicked:boolean = false;
 private var rb:Rigidbody;
+private var mazes:MazeGenerator[] = null;
 
 function Start () {
 	rb = GetComponent.<Rigidbody>();
@@ -31,11 +32,21 @@ function OnCollisionEnter(col:Collision){
 	if(col.gameObject.tag == "PickWeapon" && !weaponPicked) {
 		weapons.Find(col.gameObject.name).gameObject.SetActive(true);
 		weapons.GetComponent.<CapsuleCollider>().enabled = true;
+		if(FirstToPick()) {
+			animator.SetTrigger("Fly");
+			animator.SetBool("Run Forwards", false);
+			animator.SetBool("Run Backwards", false);
+		} else
+			mazes = FindObjectsOfType(MazeGenerator);
 		weaponPicked = true;
-		animator.SetTrigger("Fly");
-		animator.SetBool("Run Forwards", false);
-		animator.SetBool("Run Backwards", false);
 	}
+}
+
+function FirstToPick() {
+	for(var player in FindObjectsOfType(rbPlayerControls))
+		if(player.weaponPicked)
+			return false;
+	return true;
 }
 
 function OnFlyingStart() {
@@ -117,4 +128,8 @@ function Update () {
 
 		rb.velocity = Vector3(rb.velocity.x, oldY, rb.velocity.z);
 	}
+
+	if(mazes)
+		for(var maze in mazes)
+			maze.gameObject.transform.position.y -= 0.03;
 }
